@@ -48,7 +48,8 @@
     guru-mode projectile ido-ubiquitous
     magit move-text rainbow-mode
     smartparens smex undo-tree
-    volatile-highlights zenburn-theme)
+    volatile-highlights zenburn-theme
+    color-theme-solarized)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()

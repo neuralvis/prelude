@@ -50,12 +50,41 @@
 (require 'ox-latex)
 (add-to-list 'org-latex-classes
 '("tuftebook"
+
 "\\documentclass{tufte-book}\n
+
+
+\hypersetup{colorlinks}
+\usepackage{paralist}
+\let\itemize\compactitem
+\let\description\compactdesc
+\let\enumerate\compactenum
+\usepackage{minted}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}}
+\newcommand{\hangstar}{\makebox[0pt][l]{*}}
+\usepackage{xspace}
+
+\newcommand{\monthyear}{%
+  \ifcase\month\or January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or
+  December\fi\space\number\year
+}
+
+
 \\usepackage{color}
 \\usepackage{amssymb}
 \\usepackage{gensymb}
 \\usepackage{nicefrac}
 \\usepackage{units}"
+
+
+
 ("\\section{%s}" . "\\section*{%s}")
 ("\\subsection{%s}" . "\\subsection*{%s}")
 ("\\paragraph{%s}" . "\\paragraph*{%s}")

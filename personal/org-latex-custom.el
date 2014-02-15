@@ -1,11 +1,6 @@
 ;; My custom LaTeX class for Org-mode export. require is needed for it to work.
 (require 'ox-latex)
 
-
-
-
-
-
 (add-to-list 'org-latex-classes
              '("fu-org-article"
 "\\documentclass[11pt,a4paper]{article}
@@ -50,41 +45,12 @@
 (require 'ox-latex)
 (add-to-list 'org-latex-classes
 '("tuftebook"
-
 "\\documentclass{tufte-book}\n
-
-
-\hypersetup{colorlinks}
-\usepackage{paralist}
-\let\itemize\compactitem
-\let\description\compactdesc
-\let\enumerate\compactenum
-\usepackage{minted}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
-\graphicspath{{graphics/}}
-\usepackage{fancyvrb}
-\fvset{fontsize=\normalsize}
-\newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}}
-\newcommand{\hangstar}{\makebox[0pt][l]{*}}
-\usepackage{xspace}
-
-\newcommand{\monthyear}{%
-  \ifcase\month\or January\or February\or March\or April\or May\or June\or
-  July\or August\or September\or October\or November\or
-  December\fi\space\number\year
-}
-
-
 \\usepackage{color}
 \\usepackage{amssymb}
 \\usepackage{gensymb}
 \\usepackage{nicefrac}
 \\usepackage{units}"
-
-
-
 ("\\section{%s}" . "\\section*{%s}")
 ("\\subsection{%s}" . "\\subsection*{%s}")
 ("\\paragraph{%s}" . "\\paragraph*{%s}")
@@ -105,3 +71,5 @@
 ("\\subsection{%s}" . "\\subsection*{%s}")
 ("\\paragraph{%s}" . "\\paragraph*{%s}")
 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(setq org-src-fontify-natively t)

@@ -40,23 +40,25 @@
                )
              )
 
-
 ;; tufte-book class for writing classy books
 (require 'ox-latex)
 (add-to-list 'org-latex-classes
 '("tuftebook"
-"\\documentclass{tufte-book}\n
+"\\documentclass{tufte-book}
 \\usepackage{color}
 \\usepackage{amssymb}
 \\usepackage{gensymb}
 \\usepackage{nicefrac}
+\\usepackage{microtype}
 \\usepackage{units}"
+("\\chapter{%s}" . "\\chapter*{%s}")
 ("\\section{%s}" . "\\section*{%s}")
 ("\\subsection{%s}" . "\\subsection*{%s}")
 ("\\paragraph{%s}" . "\\paragraph*{%s}")
 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
- ;; tufte-handout class for writing classy handouts and papers
+
+;; tufte-handout class for writing classy handouts and papers
 (require 'ox-latex)
 (add-to-list 'org-latex-classes
 '("tuftehandout"
@@ -74,7 +76,7 @@
 
 (setq org-src-fontify-natively t)
 
-
+;; MADHU: Taken from http://joat-programmer.blogspot.com/2013/07/org-mode-version-8-and-pdf-export-with.html
 ;; Include the latex-exporter
 (require 'ox-latex)
 ;; Add minted to the defaults packages to include when exporting.

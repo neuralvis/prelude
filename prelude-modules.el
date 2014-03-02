@@ -22,5 +22,5 @@
 ;; (require 'prelude-scala)
 (require 'prelude-scheme)
 ;; (require 'prelude-scss)
-(require 'prelude-web)
+;;(require 'prelude-web)
 (require 'prelude-xml)

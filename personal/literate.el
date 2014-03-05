@@ -16,7 +16,8 @@
     (insert (format "#+BEGIN_SRC %s :tangle %s\n" src-code-type src-file-name))
     (newline-and-indent)
     (insert "#+END_SRC\n")
-    (previous-line 2)))
+    (previous-line 2)
+    (org-edit-src-code)))
 
 (add-hook 'org-mode-hook '(lambda ()
                             ;; turn on flyspell-mode by default

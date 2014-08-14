@@ -1,3 +1,12 @@
+(require 'semantic/analyze)
+(provide 'semantic-analyze)
+(provide 'semantic-ctxt)
+(provide 'semanticdb)
+(provide 'semanticdb-find)
+(provide 'semanticdb-mode)
+(provide 'semantic-load)
+(semantic-mode 1)
+
 ;;; specify the package path
 
 (add-to-list 'load-path "../../.ecb")

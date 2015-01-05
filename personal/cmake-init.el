@@ -6,4 +6,8 @@
                   auto-mode-alist))
 
 (autoload 'cmake-mode "~/cfg/.emacs.d/personal/cmake-mode.el" t)
-(require 'cpputils-cmake)
+; Other cmake tools
+
+;; MADHU: Not sure how to use this package. Defered for later
+;; (require 'cpputils-cmake)
+;; (autoload 'cmake-project-mode "cmake-project")

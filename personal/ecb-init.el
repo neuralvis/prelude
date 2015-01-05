@@ -17,4 +17,4 @@
 
 (setq ecb-layout-name "leftright2")
 (setq ecb-show-sources-in-directories-buffer 'always)
-(setq ecb-source-path '("~/develop/bbp/Buildyard"))
+(setq ecb-source-path '("~/develop/"))

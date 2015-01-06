@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(custom-enabled-themes (quote (tsdh-dark)))
+ '(ecb-layout-window-sizes (quote (("devel" (ecb-directories-buffer-name 0.2184873949579832 . 0.7323943661971831) (ecb-history-buffer-name 0.2184873949579832 . 0.2535211267605634) (ecb-methods-buffer-name 0.19747899159663865 . 0.9859154929577465)))))
  '(ecb-options-version "2.40")
  '(fci-rule-color "#383838")
  '(global-linum-mode t)

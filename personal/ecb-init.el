@@ -15,6 +15,6 @@
 (require 'ecb)
 (require 'ecb-autoloads)
 
-(setq ecb-layout-name "leftright2")
+(setq ecb-layout-name "devel")
 (setq ecb-show-sources-in-directories-buffer 'always)
 (setq ecb-source-path '("~/develop/"))

@@ -9,7 +9,7 @@
 
 ;;; specify the package path
 
-(add-to-list 'load-path "~/cfg/.ecb")
+(add-to-list 'load-path "~/develop/cfg/.ecb")
 
 ;;; activate ecb
 (require 'ecb)

@@ -5,7 +5,7 @@
                '(("\\.cmake\\'" . cmake-mode))
                   auto-mode-alist))
 
-(autoload 'cmake-mode "~/cfg/.emacs.d/personal/cmake-mode.el" t)
+(autoload 'cmake-mode "~/develop/cfg/.emacs.d/personal/cmake-mode.el" t)
 ; Other cmake tools
 
 ;; MADHU: Not sure how to use this package. Defered for later

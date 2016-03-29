@@ -1,4 +1,5 @@
 ; Add cmake listfile names to the mode list.
+;;; Code:
 (setq auto-mode-alist
         (append
             '(("CMakeLists\\.txt\\'" . cmake-mode))

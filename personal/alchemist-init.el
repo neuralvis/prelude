@@ -4,6 +4,8 @@
 
 (require 'company)
 (require 'alchemist)
+
+;;setting up rust racer
 (require 'rust-mode)
 (require 'racer)
 
@@ -14,8 +16,8 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;;Taken from https://github.com/racer-rust/emacs-racer
-(setq racer-cmd "<path-to-racer-srcdir>/target/release/racer")
-(setq racer-rust-src-path "<path-to-rust-srcdir>/src/")
+(setq racer-cmd "~/.cargo/bin/racer")
+(setq racer-rust-src-path "~/develop/rust/src")
 
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)

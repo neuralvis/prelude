@@ -14,6 +14,9 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;;Taken from https://github.com/racer-rust/emacs-racer
+(setq racer-cmd "<path-to-racer-srcdir>/target/release/racer")
+(setq racer-rust-src-path "<path-to-rust-srcdir>/src/")
+
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
 (add-hook 'racer-mode-hook #'company-mode)

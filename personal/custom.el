@@ -25,6 +25,10 @@
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+ '(package-selected-packages
+   (quote
+    (ac-html ac-html-bootstrap auto-complete emmet-mode web-mode web-mode-edit-element rjsx-mode zenburn-theme volatile-highlights vkill undo-tree smex smartrep smartparens rainbow-mode rainbow-delimiters racer projectile ov operate-on-number multiple-cursors move-text markdown-mode magit json-mode js2-mode ido-ubiquitous guru-mode grizzl god-mode glsl-mode gitignore-mode gitconfig-mode git-timemachine gist geiser flycheck flx-ido expand-region exec-path-from-shell elisp-slime-nav easy-kill discover-my-major diminish diff-hl company-auctex color-theme-solarized cdlatex cargo browse-kill-ring anzu anaconda-mode alchemist ace-window ace-jump-mode ace-jump-buffer)))
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(prelude-guru nil)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map

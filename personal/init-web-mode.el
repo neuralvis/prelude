@@ -28,14 +28,43 @@
   (setq-local css-indent-offset n) ; css-mode
   )
 
-(setq indent-tabs-mode nil)
-;; indent 2 spaces width
-(my-setup-indent 2)
+(defun my-office-code-style ()
+  (interactive)
+  (message "Office code style!")
+  ;; use tab instead of space
+  (setq-local indent-tabs-mode t)
+  ;; indent 4 spaces width
+  (my-setup-indent 4)
+  (setq web-mode-enable-auto-pairing t)
+  (setq web-mode-enable-current-element-highlight t))
 
-(setq web-mode-enable-auto-pairing t)
-(setq web-mode-enable-current-element-highlight t)
+(defun my-personal-code-style ()
+  (interactive)
+  (message "My personal code style!")
+  ;; use space instead of tab
+  (setq indent-tabs-mode nil)
+  ;; indent 2 spaces width
+  (my-setup-indent 2)
+  (setq web-mode-enable-auto-pairing t)
+  (setq web-mode-enable-current-element-highlight t))
+
+(defun my-setup-develop-environment ()
+  (interactive)
+  (let ((proj-dir (file-name-directory (buffer-file-name))))
+    ;; if hobby project path contains string "hobby-proj1"
+    (if (string-match-p "develop" proj-dir)
+        (my-personal-code-style))
+
+    ;; if commericial project path contains string "commerical-proj"
+    (if (string-match-p "commercial" proj-dir)
+        (my-office-code-style))))
+
+;; prog-mode-hook requires emacs24+
+(add-hook 'prog-mode-hook 'my-personal-code-style)
+;; a few major-modes does NOT inherited from prog-mode
+(add-hook 'lua-mode-hook 'my-personal-code-style)
+(add-hook 'web-mode-hook 'my-personal-code-style)
 
 
-(provide 'web-mode)
-
-;;; web-mode.el ends here
+(provide 'init-web-mode)
+;;; init-web-mode.el ends here

@@ -2,6 +2,11 @@
 
 ;;; Code:
 
+(straight-use-package 'company)
+(straight-use-package 'alchemist)
+(straight-use-package 'rust-mode)
+(straight-use-package 'racer)
+
 (require 'company)
 (require 'alchemist)
 

@@ -5,6 +5,8 @@
 
 
 ;;; Code:
+(straight-use-package 'web-mode)
+
 (require 'web-mode)
 
 

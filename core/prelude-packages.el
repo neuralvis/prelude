@@ -1,6 +1,6 @@
 ;;; prelude-packages.el --- Emacs Prelude: default package selection.
 ;;
-;; Copyright © 2011-2014 Bozhidar Batsov
+;; Copyright © 2011-2018 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -35,25 +35,35 @@
 (require 'cl)
 (require 'package)
 
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+;; accessing a package repo over https on Windows is a no go, so we
+;; fallback to http there
+(if (eq system-type 'windows-nt)
+    (add-to-list 'package-archives
+                 '("melpa" . "http://melpa.org/packages/") t)
+  (add-to-list 'package-archives
+               '("melpa" . "https://melpa.org/packages/") t))
+
+;; load the pinned packages
+(let ((prelude-pinned-packages-file (expand-file-name "prelude-pinned-packages.el" prelude-dir)))
+  (if (file-exists-p prelude-pinned-packages-file)
+      (load prelude-pinned-packages-file)))
+
 ;; set package-user-dir to be relative to Prelude install path
 (setq package-user-dir (expand-file-name "elpa" prelude-dir))
 (package-initialize)
 
 (defvar prelude-packages
-  '(ace-jump-mode
-    ace-jump-buffer
-    ace-window
+  '(ace-window
+    avy
     anzu
+    beacon
     browse-kill-ring
-    color-theme-solarized
-    dash
+    crux
     discover-my-major
     diff-hl
     diminish
     easy-kill
-    elisp-slime-nav
+    editorconfig
     epl
     expand-region
     flycheck
@@ -65,20 +75,24 @@
     god-mode
     grizzl
     guru-mode
-    ido-ubiquitous
-    ov
+    hl-todo
+    imenu-anywhere
     projectile
     magit
     move-text
     operate-on-number
-    rainbow-mode
+    smart-mode-line
     smartparens
     smartrep
     smex
     undo-tree
     volatile-highlights
-    zenburn-theme)
+   )
 
+  which-key
+    zenburn-theme
+    zop-to-char)
+>>>>>>> upstream/master
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -133,20 +147,27 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
 
 (defvar prelude-auto-install-alist
   '(("\\.clj\\'" clojure-mode clojure-mode)
+    ("\\.cmake\\'" cmake-mode cmake-mode)
+    ("CMakeLists\\.txt\\'" cmake-mode cmake-mode)
     ("\\.coffee\\'" coffee-mode coffee-mode)
     ("\\.css\\'" css-mode css-mode)
     ("\\.csv\\'" csv-mode csv-mode)
+    ("Cask" cask-mode cask-mode)
     ("\\.d\\'" d-mode d-mode)
     ("\\.dart\\'" dart-mode dart-mode)
+    ("\\.elm\\'" elm-mode elm-mode)
     ("\\.ex\\'" elixir-mode elixir-mode)
     ("\\.exs\\'" elixir-mode elixir-mode)
     ("\\.elixir\\'" elixir-mode elixir-mode)
     ("\\.erl\\'" erlang erlang-mode)
     ("\\.feature\\'" feature-mode feature-mode)
     ("\\.go\\'" go-mode go-mode)
+    ("\\.graphql\\'" graphql-mode graphql-mode)
     ("\\.groovy\\'" groovy-mode groovy-mode)
     ("\\.haml\\'" haml-mode haml-mode)
     ("\\.hs\\'" haskell-mode haskell-mode)
+    ("\\.json\\'" json-mode json-mode)
+    ("\\.kt\\'" kotlin-mode kotlin-mode)
     ("\\.kv\\'" kivy-mode kivy-mode)
     ("\\.latex\\'" auctex LaTeX-mode)
     ("\\.less\\'" less-css-mode less-css-mode)
@@ -157,12 +178,16 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.pp\\'" puppet-mode puppet-mode)
     ("\\.php\\'" php-mode php-mode)
     ("\\.proto\\'" protobuf-mode protobuf-mode)
+    ("\\.pyd\\'" cython-mode cython-mode)
+    ("\\.pyi\\'" cython-mode cython-mode)
+    ("\\.pyx\\'" cython-mode cython-mode)
     ("PKGBUILD\\'" pkgbuild-mode pkgbuild-mode)
     ("\\.rs\\'" rust-mode rust-mode)
     ("\\.sass\\'" sass-mode sass-mode)
-    ("\\.scala\\'" scala-mode2 scala-mode)
+    ("\\.scala\\'" scala-mode scala-mode)
     ("\\.scss\\'" scss-mode scss-mode)
     ("\\.slim\\'" slim-mode slim-mode)
+    ("\\.styl\\'" stylus-mode stylus-mode)
     ("\\.swift\\'" swift-mode swift-mode)
     ("\\.textile\\'" textile-mode textile-mode)
     ("\\.thrift\\'" thrift thrift-mode)
@@ -173,8 +198,8 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
 ;; markdown-mode doesn't have autoloads for the auto-mode-alist
 ;; so we add them manually if it's already installed
 (when (package-installed-p 'markdown-mode)
-  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode)))
 
 (when (package-installed-p 'pkgbuild-mode)
   (add-to-list 'auto-mode-alist '("PKGBUILD\\'" . pkgbuild-mode)))

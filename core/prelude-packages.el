@@ -87,13 +87,11 @@
     smex
     undo-tree
     volatile-highlights
-   )
-
-  which-key
+    which-key
     zenburn-theme
     zop-to-char)
->>>>>>> upstream/master
-  "A list of packages to ensure are installed at launch.")
+  "A list of packages to ensure are installed at launch."
+  )
 
 (defun prelude-packages-installed-p ()
   "Check if all packages in `prelude-packages' are installed."

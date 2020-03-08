@@ -1,8 +1,8 @@
-;;; prelude-xml.el --- Emacs Prelude: XML editing configuration.
+;;; prelude-linux.el --- Emacs Prelude: linux specific settings.
 ;;
 ;; Copyright © 2011-2020 Bozhidar Batsov
 ;;
-;; Author: Bozhidar Batsov <bozhidar@batsov.com>
+;; Author: Stanislav Arnaudov <stanislav_ts@avb.bg>
 ;; URL: https://github.com/bbatsov/prelude
 ;; Version: 1.0.0
 ;; Keywords: convenience
@@ -11,7 +11,7 @@
 
 ;;; Commentary:
 
-;; Some basic nxml-mode configuration.
+;; Some Linux specific stuff.
 
 ;;; License:
 
@@ -32,19 +32,12 @@
 
 ;;; Code:
 
-(require 'nxml-mode)
+;; On Linux Emacs doesn't use the shell PATH if it's not started from
+;; the shell. Let's fix that:
+(prelude-require-packages '(exec-path-from-shell))
 
-(push '("<\\?xml" . nxml-mode) magic-mode-alist)
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
 
-;; pom files should be treated as xml files
-(add-to-list 'auto-mode-alist '("\\.pom$" . nxml-mode))
-
-(setq nxml-child-indent 4)
-(setq nxml-attribute-indent 4)
-(setq nxml-auto-insert-xml-declaration-flag nil)
-(setq nxml-bind-meta-tab-to-complete-flag t)
-(setq nxml-slash-auto-complete-flag t)
-
-(provide 'prelude-xml)
-
-;;; prelude-xml.el ends here
+(provide 'prelude-linux)
+;;; prelude-linux.el ends here

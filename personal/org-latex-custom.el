@@ -87,7 +87,7 @@
 ;; Let the exporter use the -shell-escape option to let latex
 ;; execute external programs.
 ;; This obviously and can be dangerous to activate!
-;;(setq org-latex-pdf-process
-;;      '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 (setq org-latex-pdf-process
-      '("latexmk -shell-escape -interaction=nonstopmode -pdf -f %f"))
+     '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; (setq org-latex-pdf-process
+;;       '("latexmk -shell-escape -interaction=nonstopmode -pdf -f %f"))

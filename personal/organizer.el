@@ -26,7 +26,7 @@
          "* TODO %?\n  %i\n  %a")
         ("w" "Work Task" entry (file+headline my/org-tasks-file "Work")
          "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+datetree my/org-journal-file)
+        ("j" "Journal" entry (file+olp+datetree my/org-journal-file)
          "* %?\nEntered on %U\n  %i\n  %a")))
 
 

@@ -19,7 +19,7 @@
 
 (setq org-capture-templates
       '(("l" "Link" entry (file+headline my/org-bookmark-file "Inbox")
-         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?\n\nCaptured: %U")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
         ("n" "Note" entry (file org-default-notes-file)
          "* %^{Note}\n")
         ("t" "Personal Task" entry (file+headline my/org-tasks-file "Personal")

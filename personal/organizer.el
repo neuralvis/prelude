@@ -18,8 +18,22 @@
 (defvar my/org-journal-file "~/develop/orgnotes/journal.org")
 
 (setq org-capture-templates
-      '(("l" "Link" entry (file+headline my/org-bookmark-file "Inbox")
+      '(("l" "Templates for adding links")
+        ("lp" "Programming" entry (file+headline my/org-bookmark-file "Programming")
          "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+        ("ld" "Deeplearning" entry (file+headline my/org-bookmark-file "Deeplearning")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+        ("le" "Emacs" entry (file+headline my/org-bookmark-file "Emacs")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+        ("lv" "Visualization" entry (file+headline my/org-bookmark-file "Visualization")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+        ("lg" "Graphics" entry (file+headline my/org-bookmark-file "3D Graphics")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+        ("lc" "Photography" entry (file+headline my/org-bookmark-file "Photography")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+        ("li" "Inbox" entry (file+headline my/org-bookmark-file "Inbox")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+
         ("n" "Note" entry (file org-default-notes-file)
          "* %^{Note}\n")
         ("t" "Personal Task" entry (file+headline my/org-tasks-file "Personal")

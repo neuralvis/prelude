@@ -13,12 +13,21 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; now let's setup some capture templates
-(defvar my/org-tasks-file "~/develop/orgnotes/tasks.org")
+(defvar my/org-work-tasks "~/develop/orgnotes/work-tasks.org")
+(defvar my/org-personal-tasks "~/develop/orgnotes/personal-tasks.org")
+
 (defvar my/org-bookmark-file "~/develop/orgnotes/bookmarks.org")
-(defvar my/org-journal-file "~/develop/orgnotes/journal.org")
+(defvar my/org-personal-journal "~/develop/orgnotes/personal-journal.org")
+(defvar my/org-work-journal "~/develop/orgnotes/work-journal.org")
 
 (setq org-capture-templates
-      '(("l" "Templates for adding links")
+      '(("j" "Add a journal entry...")
+        ("jw" "Work" entry (file+olp+datetree my/org-work-journal)
+         "* %?\nEntered on %U\n  %i\n  %a")
+        ("jp" "Personal" entry (file+olp+datetree my/org-personal-journal)
+         "* %?\nEntered on %U\n  %i\n  %a")
+
+        ("l" "Add a bookmark...")
         ("lp" "Programming" entry (file+headline my/org-bookmark-file "Programming")
          "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
         ("ld" "Deeplearning" entry (file+headline my/org-bookmark-file "Deeplearning")
@@ -33,15 +42,17 @@
          "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
         ("li" "Inbox" entry (file+headline my/org-bookmark-file "Inbox")
          "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+        ("lw" "Work" entry (file+headline my/org-bookmark-file "Work")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
 
         ("n" "Note" entry (file org-default-notes-file)
          "* %^{Note}\n")
-        ("t" "Personal Task" entry (file+headline my/org-tasks-file "Personal")
+
+        ("t" "Add a task...")
+        ("tp" "Personal Task" entry (file my/org-personal-tasks)
          "* TODO %?\n  %i\n  %a")
-        ("w" "Work Task" entry (file+headline my/org-tasks-file "Work")
-         "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+olp+datetree my/org-journal-file)
-         "* %?\nEntered on %U\n  %i\n  %a")))
+        ("tw" "Work Task" entry (file my/org-work-tasks)
+         "* TODO %?\n  %i\n  %a")))
 
 
 ;; I am not sure what these do, but I'd like to

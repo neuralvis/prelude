@@ -1,6 +1,7 @@
 (straight-use-package 'ox-rst)
-(require 'org)
 (require 'ox-rst)
+(require 'org)
+
 
 
 
@@ -58,6 +59,7 @@
         ("tw" "Work Task" entry (file my/org-work-tasks)
          "* TODO %?\n  %i\n  %a")))
 
+(org-reload)
 
 ;; I am not sure what these do, but I'd like to
 ;; keep them in for now

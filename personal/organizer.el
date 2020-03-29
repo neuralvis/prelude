@@ -1,4 +1,8 @@
+(straight-use-package 'ox-rst)
 (require 'org)
+(require 'ox-rst)
+
+
 
 ;; some options for document structure
 (setq org-startup-indented t)

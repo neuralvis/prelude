@@ -1,4 +1,9 @@
+(straight-use-package 'ox-rst)
+(require 'ox-rst)
 (require 'org)
+
+
+
 
 ;; some options for document structure
 (setq org-startup-indented t)
@@ -29,21 +34,21 @@
 
         ("l" "Add a bookmark...")
         ("lp" "Programming" entry (file+headline my/org-bookmark-file "Programming")
-         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U \n\n")
         ("ld" "Deeplearning" entry (file+headline my/org-bookmark-file "Deeplearning")
-         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U \n\n")
         ("le" "Emacs" entry (file+headline my/org-bookmark-file "Emacs")
-         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U \n\n")
         ("lv" "Visualization" entry (file+headline my/org-bookmark-file "Visualization")
-         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U \n\n")
         ("lg" "Graphics" entry (file+headline my/org-bookmark-file "3D Graphics")
-         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U \n\n")
         ("lc" "Photography" entry (file+headline my/org-bookmark-file "Photography")
-         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U \n\n")
         ("li" "Inbox" entry (file+headline my/org-bookmark-file "Inbox")
-         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U \n\n")
         ("lw" "Work" entry (file+headline my/org-bookmark-file "Work")
-         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U\n")
+         "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?Captured: %U \n\n")
 
         ("n" "Note" entry (file org-default-notes-file)
          "* %^{Note}\n")
@@ -54,6 +59,7 @@
         ("tw" "Work Task" entry (file my/org-work-tasks)
          "* TODO %?\n  %i\n  %a")))
 
+(org-reload)
 
 ;; I am not sure what these do, but I'd like to
 ;; keep them in for now

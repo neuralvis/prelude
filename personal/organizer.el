@@ -23,9 +23,9 @@
 (setq org-capture-templates
       '(("j" "Add a journal entry...")
         ("jw" "Work" entry (file+olp+datetree my/org-work-journal)
-         "* %?\nEntered on %U\n  %i\n  %a")
+         "* %?\nEntered on %U\n")
         ("jp" "Personal" entry (file+olp+datetree my/org-personal-journal)
-         "* %?\nEntered on %U\n  %i\n  %a")
+         "* %?\nEntered on %U\n")
 
         ("l" "Add a bookmark...")
         ("lp" "Programming" entry (file+headline my/org-bookmark-file "Programming")

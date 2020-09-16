@@ -4,8 +4,6 @@
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
-;; Version: 1.0.0
-;; Keywords: convenience
 
 ;; This file is not part of GNU Emacs.
 
@@ -32,7 +30,7 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (require 'package)
 
 ;; accessing a package repo over https on Windows is a no go, so we
@@ -78,6 +76,7 @@
     projectile
     magit
     move-text
+    nlinum
     operate-on-number
     smartparens
     smartrep
@@ -93,7 +92,7 @@
 
 (defun prelude-packages-installed-p ()
   "Check if all packages in `prelude-packages' are installed."
-  (every #'package-installed-p prelude-packages))
+  (cl-every #'package-installed-p prelude-packages))
 
 (defun prelude-require-package (package)
   "Install PACKAGE unless already installed."
@@ -130,7 +129,7 @@ are installed and are not in `prelude-packages'.  Useful for
 removing unwanted packages."
   (interactive)
   (package-show-package-list
-   (set-difference package-activated-list prelude-packages)))
+   (cl-set-difference package-activated-list prelude-packages)))
 
 (defmacro prelude-auto-install (extension package mode)
   "When file with EXTENSION is opened triggers auto-install of PACKAGE.

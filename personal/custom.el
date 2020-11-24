@@ -9,39 +9,34 @@
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
- '(custom-enabled-themes (quote (manoj-dark)))
+ '(custom-enabled-themes '(manoj-dark))
  '(custom-safe-themes
-   (quote
-    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
+   '("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default))
  '(ecb-layout-window-sizes
-   (quote
-    (("devel"
+   '(("devel"
       (ecb-directories-buffer-name 0.2184873949579832 . 0.7323943661971831)
       (ecb-history-buffer-name 0.2184873949579832 . 0.2535211267605634)
-      (ecb-methods-buffer-name 0.19747899159663865 . 0.9859154929577465)))))
+      (ecb-methods-buffer-name 0.19747899159663865 . 0.9859154929577465))))
  '(ecb-options-version "2.40")
  '(fci-rule-color "#383838")
  '(global-linum-mode t)
  '(global-visual-line-mode 1)
  '(linum-format "%6d▸ ")
  '(nrepl-message-colors
-   (quote
-    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+   '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   (quote
-    (vue-html-mode vue-mode ac-html ac-html-bootstrap auto-complete emmet-mode web-mode web-mode-edit-element rjsx-mode zenburn-theme volatile-highlights vkill undo-tree smex smartrep smartparens rainbow-mode rainbow-delimiters racer projectile ov operate-on-number multiple-cursors move-text markdown-mode magit json-mode js2-mode ido-ubiquitous guru-mode grizzl god-mode glsl-mode gitignore-mode gitconfig-mode git-timemachine gist geiser flycheck flx-ido expand-region exec-path-from-shell elisp-slime-nav easy-kill discover-my-major diminish diff-hl company-auctex color-theme-solarized cdlatex cargo browse-kill-ring anzu anaconda-mode alchemist ace-window ace-jump-mode ace-jump-buffer)))
- '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+   '(vue-html-mode vue-mode ac-html ac-html-bootstrap auto-complete emmet-mode web-mode web-mode-edit-element rjsx-mode zenburn-theme volatile-highlights vkill undo-tree smex smartrep smartparens rainbow-mode rainbow-delimiters racer projectile ov operate-on-number multiple-cursors move-text markdown-mode magit json-mode js2-mode ido-ubiquitous guru-mode grizzl god-mode glsl-mode gitignore-mode gitconfig-mode git-timemachine gist geiser flycheck flx-ido expand-region exec-path-from-shell elisp-slime-nav easy-kill discover-my-major diminish diff-hl company-auctex color-theme-solarized cdlatex cargo browse-kill-ring anzu anaconda-mode alchemist ace-window ace-jump-mode ace-jump-buffer))
+ '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(prelude-guru nil)
  '(safe-local-variable-values
-   (quote
-    ((projectile-project-compilation-cmd . "./serve.sh")
+   '((flycheck-disabled-checkers emacs-lisp-checkdoc)
+     (projectile-project-compilation-cmd . "./serve.sh")
      (projectile-project-compilation-cmd . "./build.sh")
      (projectile-project-compilation-cmd . "source build.sh")
-     (projectile-project-compilation-cmd . "make html"))))
+     (projectile-project-compilation-cmd . "make html")))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#BC8383")
+   '((20 . "#BC8383")
      (40 . "#CC9393")
      (60 . "#DFAF8F")
      (80 . "#D0BF8F")
@@ -58,7 +53,7 @@
      (300 . "#7CB8BB")
      (320 . "#8CD0D3")
      (340 . "#94BFF3")
-     (360 . "#DC8CC3"))))
+     (360 . "#DC8CC3")))
  '(vc-annotate-very-old-color "#DC8CC3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

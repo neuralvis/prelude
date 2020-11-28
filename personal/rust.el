@@ -1,17 +1,25 @@
+(straight-use-package 'rust-mode)
+(straight-use-package 'racer)
+
+;;setting up rust racer
 (require 'rust-mode)
+(require 'racer)
+
 
 ;; Indetations are spaces
 (add-hook 'rust-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
 
 ;; run rust-fmt on save
-;; (setq rust-format-on-save f)
+(setq rust-format-on-save t)
 
 ;; setting path for racer
+;;Taken from https://github.com/racer-rust/emacs-racer
+(setq racer-cmd "~/.cargo/bin/racer")
 (setq racer-rust-src-path
       (concat (string-trim
                (shell-command-to-string "rustc --print sysroot"))
-              "/lib/rustlib/src/rust/src"))
+              "/lib/rustlib/src/rust/library"))
 
 ;; start racer and eldoc mode
 (add-hook 'rust-mode-hook #'racer-mode)

@@ -4,13 +4,22 @@
 (straight-use-package 'counsel)
 (straight-use-package 'swiper)
 
+(straight-use-package 'prescient)
+(straight-use-package 'ivy-prescient)
+
+
 ;; enable ivy-mode
 (ivy-mode 1)
+(counsel-mode 1)
 
 ;; set configuration as outlined in
 ;; https://oremacs.com/swiper/#getting-started
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
+
+;; enable prescient with ivy
+(ivy-prescient-mode 1)
+
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
 (global-set-key "\C-s" 'swiper)

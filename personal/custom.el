@@ -19,9 +19,9 @@
       (ecb-methods-buffer-name 0.19747899159663865 . 0.9859154929577465))))
  '(ecb-options-version "2.40")
  '(fci-rule-color "#383838")
- '(global-linum-mode t)
+ '(global-nlinum-mode t)
+ '(nlinum-format "%4d▸ ")
  '(global-visual-line-mode 1)
- '(linum-format "%6d▸ ")
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages

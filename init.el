@@ -105,6 +105,11 @@ by Prelude.")
 
 (message "Loading Prelude's core...")
 
+(setq package-archives                                                                                                                                                                      
+      `(("melpa" . "/home/users/msrinivasa/.elpa-mirror/melpa/")                                                                                                                            
+        ("org"   . "/home/users/msrinivasa/.elpa-mirror/org/")                                                                                                                              
+        ("gnu"   . "/home/users/msrinivasa/.elpa-mirror/gnu/")))
+
 ;; the core stuff
 (require 'prelude-packages)
 (require 'prelude-custom)  ;; Needs to be loaded before core, editor and ui

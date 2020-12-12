@@ -11,7 +11,7 @@
           (lambda () (setq indent-tabs-mode nil)))
 
 ;; run rust-fmt on save
-(setq rust-format-on-save t)
+;; (setq rust-format-on-save t)
 
 ;; setting path for racer
 ;;Taken from https://github.com/racer-rust/emacs-racer

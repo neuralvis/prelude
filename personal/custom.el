@@ -9,9 +9,9 @@
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
- '(custom-enabled-themes '(manoj-dark))
+ '(custom-enabled-themes '(leuven))
  '(custom-safe-themes
-   '("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default))
+   '("e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default))
  '(ecb-layout-window-sizes
    '(("devel"
       (ecb-directories-buffer-name 0.2184873949579832 . 0.7323943661971831)
@@ -20,8 +20,8 @@
  '(ecb-options-version "2.40")
  '(fci-rule-color "#383838")
  '(global-nlinum-mode t)
- '(nlinum-format "%4d▸ ")
  '(global-visual-line-mode 1)
+ '(nlinum-format "%4d▸ ")
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages

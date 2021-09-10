@@ -6,9 +6,10 @@
 
 ;;; Code:
 (straight-use-package 'web-mode)
+(straight-use-package 'smartparens)
 
 (require 'web-mode)
-
+(require 'smartparens)
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode))
@@ -67,6 +68,11 @@
 (add-hook 'lua-mode-hook 'my-personal-code-style)
 (add-hook 'web-mode-hook 'my-personal-code-style)
 
+
+
+
+;; Always start smartparens mode in rust-mode.
+(add-hook 'web-mode #'smartparens-mode)
 
 (provide 'init-web-mode)
 ;;; init-web-mode.el ends here

@@ -1,10 +1,11 @@
 (straight-use-package 'rust-mode)
 (straight-use-package 'racer)
+(straight-use-package 'smartparens)
 
 ;;setting up rust racer
 (require 'rust-mode)
 (require 'racer)
-
+(require 'smartparens)
 
 ;; Indetations are spaces
 (add-hook 'rust-mode-hook
@@ -24,6 +25,9 @@
 ;; start racer and eldoc mode
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
+
+;; Always start smartparens mode in rust-mode.
+(add-hook 'rust-mode #'smartparens-mode)
 
 ;; company mode
 (add-hook 'racer-mode-hook #'company-mode)

@@ -24,7 +24,7 @@
 \\usepackage[a4paper, textheight=10in,
             marginparsep=7pt, marginparwidth=.6in]{geometry}
 
-\\usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=blue]{hyperref}
+\\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
 
 \\let\\nofiles\\relax % Void the \\nofiles command
 

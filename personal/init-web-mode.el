@@ -67,7 +67,7 @@
 ;; a few major-modes does NOT inherited from prog-mode
 (add-hook 'lua-mode-hook 'my-personal-code-style)
 (add-hook 'web-mode-hook 'my-personal-code-style)
-
+(add-hook 'python-mode-hook 'my-personal-code-style)
 
 
 

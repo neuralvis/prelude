@@ -1,6 +1,6 @@
 ;;; prelude-ui.el --- Emacs Prelude: UI optimizations and tweaks.
 ;;
-;; Copyright © 2011-2020 Bozhidar Batsov
+;; Copyright © 2011-2022 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -62,8 +62,11 @@
 ;; show line numbers at the beginning of each line
 (unless prelude-minimalistic-ui
   ;; there's a built-in linum-mode, but we're using
-  ;; nlinum-mode, as it's supposedly faster
-  (global-nlinum-mode t))
+  ;; display-line-numbers-mode or nlinum-mode,
+  ;; as it's supposedly faster
+  (if (fboundp 'global-display-line-numbers-mode)
+      (global-display-line-numbers-mode)
+    (global-nlinum-mode t)))
 
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -79,13 +82,13 @@
 (when prelude-theme
   (load-theme prelude-theme t))
 
-;; show the cursor when moving after big movements in the window
-(require 'beacon)
-(beacon-mode +1)
-
 ;; show available keybindings after you start typing
-(require 'which-key)
-(which-key-mode +1)
+;; add to hook when running as a daemon as a workaround for a
+;; which-key bug
+;; https://github.com/justbur/emacs-which-key/issues/306
+(if (daemonp)
+    (add-hook 'server-after-make-frame-hook 'which-key-mode)
+  (which-key-mode +1))
 
 (provide 'prelude-ui)
 ;;; prelude-ui.el ends here

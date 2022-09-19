@@ -27,3 +27,10 @@ prelude-cheatsheet.aux
 prelude-cheatsheet.log
 
 straight
+transient/
+var/
+.cache/
+.lsp-session*
+gotools/
+eln-cache/
+

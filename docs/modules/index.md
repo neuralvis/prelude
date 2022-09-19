@@ -12,8 +12,9 @@ following links.
 
 ## What's a module?
 
-Prelude modules are plain old Elisp libraries - there's absolutely nothing magical about them.
-Most of them simply install a few package and provide some sensible baseline configuration for them.
+Prelude modules are plain old Elisp libraries - there's absolutely
+nothing magical about them.  Most of them simply install a few Emacs
+packages and provide some sensible baseline configuration for them.
 Here's a real example.
 
 ``` emacs-lisp
@@ -28,10 +29,14 @@ Here's a real example.
 ;; We never want to edit Rubinius bytecode
 (add-to-list 'completion-ignored-extensions ".rbc")
 
+;; Map yari to C-h R
 (define-key 'help-command (kbd "R") 'yari)
 
 (with-eval-after-load 'ruby-mode
   (defun prelude-ruby-mode-defaults ()
+    ;; Don't auto-insert encoding comments
+    ;; Those are almost never needed in Ruby 2+
+    (setq ruby-insert-encoding-magic-comment nil)
     (inf-ruby-minor-mode +1)
     ;; CamelCase aware editing operations
     (subword-mode +1))
@@ -52,29 +57,31 @@ To use a module you simple have to require it. No new concepts. No magic.
 The following programming languages have enhanced support in Prelude:
 
 - C/C++
-- Clojure
+- [Clojure](clojure.md)
 - CoffeeScript
-- Common Lisp
+- [Common Lisp](common_lisp.md)
 - CSS
 - [Dart](dart.md)
-- Emacs Lisp
-- Erlang
 - Elixir
+- [Emacs Lisp](emacs_lisp.md)
+- Erlang
 - Go
 - Haskell
 - JavaScript
 - LaTeX
-- Lisp Base (common foundation for Lisp modules)
+- [Lisp Base](lisp.md) (common foundation for Lisp modules)
+- LSP (common foundation for all modules relying on `lsp-mode`)
+- Lua
 - Markdown
 - OCaml
-- Org Mode
 - Perl
-- [Python](python.md)
 - [Programming Base](programming.md) (common foundation for programming modules)
-- Ruby
+- [Python](python.md)
+- Racket
+- [Ruby](ruby.md)
 - Rust
 - Scala
-- Scheme
+- [Scheme](scheme.md)
 - SCSS
 - Shell
 - TypeScript
@@ -91,3 +98,5 @@ The following programming languages have enhanced support in Prelude:
 - ido
 - ivy
 - key-chord
+- Org Mode
+- selectrum

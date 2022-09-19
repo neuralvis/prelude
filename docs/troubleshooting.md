@@ -9,7 +9,7 @@ installed.
 
 If you're doing manual Prelude updates you should always do a package update first.
 
-`M-x package-list-packages RET U x`
+    M-x package-list-packages RET U x
 
 That's not necessary if you're using `M-x prelude-update`, since it
 will automatically update the installed packages.
@@ -22,8 +22,8 @@ on the presence of the `aspell` program and an `en` dictionary on your
 system. You can install `aspell` and the dictionary on macOS with
 `homebrew` like this:
 
-```bash
-brew install aspell --with-lang=en
+```shellsession
+$ brew install aspell --with-lang=en
 ```
 
 On Linux distros - just use your distro's package manager.
@@ -74,6 +74,25 @@ you don't like that simply add this to your personal config:
 ```emacs-lisp
 (global-set-key [remap move-beginning-of-line]
                 'move-beginning-of-line)
+```
+
+If you're using term-mode or ansi-term-mode, the above will not
+restore the default behaviour of sending the C-a key sequence directly
+to the terminal. As a workaround, you can remove the C-a binding from
+prelude-mode specifically for these as described
+[here](https://emacsredux.com/blog/2013/09/25/removing-key-bindings-from-minor-mode-keymaps/)
+by adding something like the following to your personal config:
+
+```emacs-lisp
+(defun my-term-mode-hook ()
+  (let ((oldmap (cdr (assoc 'prelude-mode minor-mode-map-alist)))
+        (newmap (make-sparse-keymap)))
+    (set-keymap-parent newmap oldmap)
+    (define-key newmap (kbd "C-a") nil)
+    (make-local-variable 'minor-mode-overriding-map-alist)
+    (push `(prelude-mode . ,newmap) minor-mode-overriding-map-alist)))
+
+(add-hook 'term-mode-hook 'my-term-mode-hook)
 ```
 
 ## Poor ido matching performance on large datasets

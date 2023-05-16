@@ -1,8 +1,13 @@
+(straight-use-package 'use-package)
 (straight-use-package 'rustic)
 (straight-use-package 'lsp-mode)
 (straight-use-package 'lsp-ui)
 (straight-use-package 'smartparens)
 (straight-use-package 'yasnippet)
+(straight-use-package 'flycheck)
+
+
+(use-package flycheck :ensure)
 
 (use-package rustic
   :ensure
@@ -61,8 +66,11 @@
              (lsp-ui-sideline-show-hover t)
              (lsp-ui-doc-enable nil))
 
-;;setting up rust racer
+
+;; Always start smartparens mode in rust-mode.
 (require 'smartparens)
+(add-hook 'rust-mode #'smartparens-mode)
+
 
 ;; Indetations are spaces
 (add-hook 'rust-mode-hook
@@ -71,11 +79,8 @@
 ;; run rust-fmt on save
 (setq rust-format-on-save t)
 
-;; Always start smartparens mode in rust-mode.
-(add-hook 'rust-mode #'smartparens-mode)
 
 ;; company mode
-;;(add-hook 'racer-mode-hook #'company-mode)
 ;;(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 ;;(setq company-tooltip-align-annotations t)
 (use-package company

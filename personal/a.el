@@ -10,5 +10,6 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(straight-use-package 'org)
 (straight-use-package 'smartparens)
 (require 'smartparens-config)

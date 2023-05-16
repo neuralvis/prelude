@@ -20,6 +20,7 @@
 (defun my-setup-indent (n)
   ;; java/c/c++
   (setq-local c-basic-offset n)
+  (setq c-indent-level n)
   ;; web development
   (setq-local coffee-tab-width n) ; coffeescript
   (setq-local javascript-indent-level n) ; javascript-mode
@@ -34,6 +35,11 @@
 (defun my-office-code-style ()
   (interactive)
   (message "Office code style!")
+  (setq-default tab-width 2)
+  ;; cpp style
+  (c-set-offset 'substatement-open 0)
+  (setq c++-tab-always-indent t)
+  
   ;; use tab instead of space
   (setq-local indent-tabs-mode t)
   ;; indent 4 spaces width
@@ -44,6 +50,11 @@
 (defun my-personal-code-style ()
   (interactive)
   (message "My personal code style!")
+  (setq-default tab-width 2)
+  ;; cpp style
+  (c-set-offset 'substatement-open 0)
+  (setq c++-tab-always-indent nil)
+
   ;; use space instead of tab
   (setq indent-tabs-mode nil)
   ;; indent 2 spaces width
@@ -68,8 +79,9 @@
 (add-hook 'lua-mode-hook 'my-personal-code-style)
 (add-hook 'web-mode-hook 'my-personal-code-style)
 (add-hook 'python-mode-hook 'my-personal-code-style)
-
-
+(add-hook 'c++-mode-hook 'my-personal-code-style)
+(add-hook 'c-mode-hook 'my-personal-code-style)
+(add-hook 'c-mode-common-hook 'my-personal-code-style)
 
 ;; Always start smartparens mode in rust-mode.
 (add-hook 'web-mode #'smartparens-mode)

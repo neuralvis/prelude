@@ -3,12 +3,12 @@
 (straight-use-package 'lsp-mode)
 (straight-use-package 'lsp-ui)
 (straight-use-package 'company)
-(straight-use-package 'company-lsp)
-(straight-use-package 'smartparens)
+(straight-use-package 'diminish)
+;; (straight-use-package 'company-lsp)
+;; (straight-use-package 'smartparens)
 (straight-use-package 'yasnippet)
 (straight-use-package 'flycheck)
-(straight-use-package 'rust-playground)
-(straight-use-package 'toml-mode)
+;; (straight-use-package 'toml-mode)
 
 
 
@@ -21,6 +21,7 @@
 ;; rustic = basic rust-mode + additions
 
 (use-package rustic
+  :straight t
   :ensure
   :bind (:map rustic-mode-map
               ("M-j" . lsp-ui-imenu)
@@ -43,6 +44,7 @@
   ;; comment to disable rustfmt on save
   (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
+
 (defun rk/rustic-mode-hook ()
   ;; so that run C-c C-c C-r works without having to confirm, but don't try to
   ;; save rust buffers that are not file visiting. Once
@@ -56,6 +58,7 @@
 ;; for rust-analyzer integration
 
 (use-package lsp-mode
+  :straight t
   :ensure
   :commands lsp
   :custom
@@ -72,37 +75,53 @@
   (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
   (lsp-rust-analyzer-display-closure-return-type-hints t)
   (lsp-rust-analyzer-display-parameter-hints nil)
-  (lsp-rust-analyzer-display-reborrow-hints nil)
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+  (lsp-rust-analyzer-display-reborrow-hints nil))
+;;   :config
+;;   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
-(use-package lsp-ui
-  :ensure
-  :commands lsp-ui-mode
-  :custom
-  (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
+;; (use-package lsp-ui
+;;   :straight t
+;;   :ensure
+;;   :commands lsp-ui-mode
+;;   :custom
+;;   (lsp-ui-peek-always-show t)
+;;   (lsp-ui-sideline-show-hover t)
+;;   (lsp-ui-doc-enable nil))
 
 
 ;; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ;; inline errors
 
-(use-package flycheck :ensure)
+(use-package flycheck 
+  :straight t 
+  :ensure)
 
 
 ;; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ;; auto-completion and code snippets
 
 (use-package yasnippet
+  :straight t
   :ensure
   :config
   (yas-reload-all)
   (add-hook 'prog-mode-hook 'yas-minor-mode)
   (add-hook 'text-mode-hook 'yas-minor-mode))
 
+(use-package diminish :straight t :ensure)
+
 (use-package company
+  :straight t
   :ensure
+  :custom
+  (company-idle-delay 0.1) ;; how long to wait until popup
+  (company-show-numbers t)
+  (company-tooltip-limit 10)
+  (company-minimum-prefix-length 2)
+  (company-tooltip-align-annotations t)
+  (company-tooltip-flip-when-above t)
+  :config
+  (diminish 'company-mode)
   :bind
   (:map company-active-map
               ("C-n". company-select-next)
@@ -112,6 +131,7 @@
   (:map company-mode-map
         ("<tab>". tab-indent-or-complete)
         ("TAB". tab-indent-or-complete)))
+
 
 (defun company-yasnippet-or-completion ()
   (interactive)
@@ -141,13 +161,8 @@
           (indent-for-tab-command)))))
 
 
-;; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-;; Create / cleanup rust scratch projects quickly
 
-(use-package rust-playground :ensure)
+;; ;; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+;; ;; for Cargo.toml and other config files
 
-
-;; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-;; for Cargo.toml and other config files
-
-(use-package toml-mode :ensure)
+(use-package toml-mode :straight t :ensure)

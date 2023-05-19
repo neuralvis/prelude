@@ -185,7 +185,7 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.pyx\\'" cython-mode cython-mode)
     ("PKGBUILD\\'" pkgbuild-mode pkgbuild-mode)
     ("\\.rkt\\'" racket-mode racket-mode)
-    ("\\.rs\\'" rust-mode rust-mode)
+    ;; ("\\.rs\\'" rust-mode rust-mode)
     ("\\.sass\\'" sass-mode sass-mode)
     ("\\.scala\\'" scala-mode scala-mode)
     ("\\.scss\\'" scss-mode scss-mode)

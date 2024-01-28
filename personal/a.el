@@ -13,4 +13,3 @@
 (straight-use-package 'org)
 (straight-use-package 'smartparens)
 (require 'smartparens-config)
-(straight-use-package 'burly)

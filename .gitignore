@@ -34,3 +34,5 @@ var/
 gotools/
 eln-cache/
 
+anaconda-mode/
+smex-items
